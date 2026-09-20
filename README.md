@@ -19,27 +19,103 @@ To write a program to perform linear search and binary search using python progr
 ## Program:
 i)	#Use a linear search method to match the item in a list.
 ```
+def linear(lst,item):
+    for i in range(len(lst)):
+        if (lst[i]==item):
+            return i   
+    return -1
+lst=[5,12,7,20,9]
+item=int(input("no:"))
+result=linear(lst,item)
+if(result!=-1):
+    print("index value is : ", result)
+else:
+    print("index value is not found")
+
+
 
 
 
 ```
+## OUTPUT:
+<img width="470" height="152" alt="image" src="https://github.com/user-attachments/assets/e86f06a8-e346-4df7-82cc-8376de692d8c" />
+
+
 ii)	# Find the element in a list using Binary Search(Iterative Method).
 ```
+def binary(lst, item):
+    low = 0
+    high = len(lst) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if lst[mid] == item:
+            return mid
+        elif lst[mid] < item:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1
+
+lst = [5, 12, 20, 30, 45, 50]  
+item = int(input())
+result=binary(lst, item)
+if(result!=-1):
+    print("Found at index", result)
+else:
+    print("Not found")
+
+
+
+
 
 
 
 
 
 ```
+## OUTPUT:
+<img width="450" height="138" alt="image" src="https://github.com/user-attachments/assets/5c4a03c5-2a75-4d45-9d36-0313c8411248" />
+
+
 iii)	# Find the element in a list using Binary Search (recursive Method).
 ```
+def binary(lst, low, high, item):
+    if low <= high:
+        mid = (low + high) // 2
+
+        if lst[mid] == item:
+            return mid
+        elif lst[mid] < item:
+            return binary(lst, mid + 1, high, item)
+        else:
+            return binary(lst, low, mid - 1, item)
+    else:
+        return -1
+
+
+lst = [5, 12, 20, 30, 45, 50]   # sorted list
+item = int(input())
+
+result = binary(lst, 0, len(lst) - 1, item)
+
+if result != -1:
+    print("Found at index", result)
+else:
+    print("Not found")
+
+
+
 
 
 
 
 
 ```
-## Sample Input and Output
+## OUTPUT:
+<img width="471" height="158" alt="image" src="https://github.com/user-attachments/assets/ad1e7c2e-2da1-4623-be1a-c544953e7a1a" />
 
 
 
